@@ -12,12 +12,10 @@ jobs:
         with:
           java-version: '16'
           distribution: 'adopt'
-      - name: Run pom.xml in another directory
-        run: mvn -f re-2021/pom.xml
       - name: Build with Maven
-        run: mvn --batch-mode clean package -DskipTests
+        run: mvn -f re-2021/pom.xml --batch-mode clean package -DskipTests
       - name: Store JAR file
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: target/tp0-SHADED.jar
+          path: re-2021/target/re-2021-SHADED.jar
