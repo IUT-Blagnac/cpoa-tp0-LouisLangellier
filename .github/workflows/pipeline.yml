@@ -14,6 +14,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn --batch-mode clean package -DskipTests
+      - name: Run pom.xml in another directory
+        run: mvn -f re-2021/pom.xml
       - name: Store JAR file
         uses: actions/upload-artifact@v2
         with:
